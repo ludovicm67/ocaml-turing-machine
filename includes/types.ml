@@ -5,20 +5,20 @@ type position    = int;;
 type etat        = int;;
 type ruban       = position -> symbole;;
 type etat_global = {
-	etatCourant:  etat;
-	ruban: 		  ruban;
-	positionTete: position;
+  etatCourant:  etat;
+  ruban:      ruban;
+  positionTete: position;
 };;
 type regle = {
-	etatDepart:    etat;
-	etatArrive:    etat;
-	symboleDepart: symbole;
-	symboleArrive: symbole;
-	dir:           direction;
+  etatDepart:    etat;
+  etatArrive:    etat;
+  symboleDepart: symbole;
+  symboleArrive: symbole;
+  dir:           direction;
 };;
 type programme = regle list;;
 type tm = {
-	etatInitial: etat;
-	etatsFinaux: etat list;
-	prog:        programme;
+  etatInitial: etat;
+  etatsFinaux: etat list;
+  prog:        programme;
 };;
