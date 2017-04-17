@@ -1,15 +1,17 @@
 (* Permet d'afficher le ruban actuel, avec la position du curseur *)
 let affiche_etat_global (eg:etat_global) =
 
+  let ruban_size = 25 in
+
   (* On affiche les symboles du ruban *)
-  for i = (eg.positionTete-25) to (eg.positionTete+25) do
+  for i = (eg.positionTete - ruban_size) to (eg.positionTete + ruban_size) do
     print_char(eg.ruban (i))
   done;
 
   print_newline();
 
   (* On affiche le curseur *)
-  for j = eg.positionTete to eg.positionTete+24 do
+  for j = eg.positionTete to eg.positionTete + (ruban_size - 1) do
     print_string(" ");
   done;
   print_string("^");
@@ -50,7 +52,7 @@ let dirValue (d:direction) =
 let executeRegle (rub:ruban) (r:regle) (eg:etat_global) =
   {
     etatCourant  = r.etatArrive;
-    ruban      = constructRuban (rub) (eg.positionTete) (r.symboleArrive);
+    ruban        = constructRuban (rub) (eg.positionTete) (r.symboleArrive);
     positionTete = dirValue(r.dir)+eg.positionTete;
   }
 ;;
@@ -65,13 +67,18 @@ let suivant (m:tm) (eg:etat_global) =
 ;;
 
 (* On lance la machine de Turing *)
-let rec run (m:tm) (eg:etat_global) =
+let rec runNext (m:tm) (eg:etat_global) =
   let newEg, b = suivant m eg in
   match b with
   | true ->
-    affiche_etat_global eg;
+    affiche_etat_global newEg;
     if not (List.mem eg.etatCourant m.etatsFinaux) then
-      run m newEg
+      runNext m newEg
     else ()
   | _ -> ()
+;;
+
+let rec run (m:tm) (eg:etat_global) =
+  affiche_etat_global eg;
+  runNext m eg
 ;;

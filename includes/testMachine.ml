@@ -1,7 +1,7 @@
 (*
    On teste avec une machine qui supprime le '0' central
    qui ajoute deux '0' à la fin, et qui replace la tête
-   de lecture au début du ruban (sur le premier '1')
+   de lecture au début du ruban
 *)
 let testRuban (p:position) =
   match p with

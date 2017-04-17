@@ -4,11 +4,13 @@ type symbole     = char;;
 type position    = int;;
 type etat        = int;;
 type ruban       = position -> symbole;;
+
 type etat_global = {
   etatCourant:  etat;
   ruban:      ruban;
   positionTete: position;
 };;
+
 type regle = {
   etatDepart:    etat;
   etatArrive:    etat;
@@ -16,7 +18,9 @@ type regle = {
   symboleArrive: symbole;
   dir:           direction;
 };;
+
 type programme = regle list;;
+
 type tm = {
   etatInitial: etat;
   etatsFinaux: etat list;
