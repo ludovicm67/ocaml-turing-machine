@@ -2,14 +2,14 @@
 let affiche_etat_global (eg:etat_global) =
 
   (* On affiche les symboles du ruban *)
-  for i = (eg.positionTete-15) to (eg.positionTete+15) do
+  for i = (eg.positionTete-25) to (eg.positionTete+25) do
     print_char(eg.ruban (i))
   done;
 
   print_newline();
 
   (* On affiche le curseur *)
-  for j = eg.positionTete to eg.positionTete+15 do
+  for j = eg.positionTete to eg.positionTete+24 do
     print_string(" ");
   done;
   print_string("^");

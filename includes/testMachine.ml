@@ -1,7 +1,7 @@
 (*
    On teste avec une machine qui supprime le '0' central
-   qui enlève deux '0' à la fin, et qui replace la tête
-   de lecture au début du ruban
+   qui ajoute deux '0' à la fin, et qui replace la tête
+   de lecture au début du ruban (sur le premier '1')
 *)
 let testRuban (p:position) =
   match p with
@@ -36,7 +36,7 @@ let testProgramme = [
     etatArrive    = 1;
     symboleDepart = '1';
     symboleArrive = '1';
-    dir       = G;
+    dir           = G;
   };
 
   {
@@ -44,7 +44,7 @@ let testProgramme = [
     etatArrive    = 2;
     symboleDepart = '0';
     symboleArrive = '1';
-    dir       = D;
+    dir           = D;
   };
 
   {
@@ -52,7 +52,7 @@ let testProgramme = [
     etatArrive    = 2;
     symboleDepart = '1';
     symboleArrive = '1';
-    dir       = D;
+    dir           = D;
   };
 
   {
@@ -60,7 +60,7 @@ let testProgramme = [
     etatArrive    = 3;
     symboleDepart = '0';
     symboleArrive = '0';
-    dir       = G;
+    dir           = G;
   };
 
   {
@@ -68,7 +68,7 @@ let testProgramme = [
     etatArrive    = 4;
     symboleDepart = '1';
     symboleArrive = '0';
-    dir       = G;
+    dir           = G;
   };
 
   {
@@ -76,7 +76,7 @@ let testProgramme = [
     etatArrive    = 5;
     symboleDepart = '1';
     symboleArrive = '0';
-    dir       = G;
+    dir           = G;
   };
 
   {
@@ -84,7 +84,7 @@ let testProgramme = [
     etatArrive    = 5;
     symboleDepart = '1';
     symboleArrive = '1';
-    dir       = G;
+    dir           = G;
   };
 
   {
@@ -92,7 +92,7 @@ let testProgramme = [
     etatArrive    = 6;
     symboleDepart = '0';
     symboleArrive = '0';
-    dir       = D;
+    dir           = D;
   };
 
 ];;
